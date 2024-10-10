@@ -1,0 +1,159 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px; /* Зменшено верхній та нижній відступ */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+nav a {
+    padding: 0 10px; /* Зменшено бокові відступи */
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    transition: color 0.3s;
+}
+
+
+nav a:hover {
+    color: #FFEB3B;
+}
+
+
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+h1 {
+    color: #4CAF50;
+    font-size: 48px;
+    text-align: center;
+}
+
+
+section {
+    margin-bottom: 40px;
+}
+
+
+.news-card {
+    background-color: #FFF;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.news-card h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+
+.news-card p {
+    margin: 10px 0;
+}
+
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.button:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+
+.footer {
+    text-align: center;
+    padding: 5px 0;
+    background-color: #4CAF50;
+    color: white;
+    position: relative;
+}
+
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+
+input:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+
+.button {
+    align-self: flex-start;
+}
