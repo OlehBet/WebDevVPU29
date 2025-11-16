@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Pixel 9 Pro - Official Store Style</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        :root {
+            --google-blue: #1a73e8;
+            --google-blue-hover: #1765c7;
+            --google-light-blue-bg: #e8f0fe;
+            --google-light-blue-text: #1967d2;
+            --google-text-primary: #202124;
+            --google-text-secondary: #5f6368;
+            --google-bg: #f8f9fa;
+            --google-card-bg: #ffffff;
+            --google-outline: #dadce0;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Roboto', sans-serif;
+            background-color: var(--google-bg);
+            color: var(--google-text-primary);
+        }
+
+        /* --- HEADER & NAV --- */
+        .navbar {
+            background-color: var(--google-card-bg) !important;
+            border-bottom: 1px solid var(--google-outline);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: none;
+        }
+        .navbar-brand {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 700;
+            color: var(--google-text-primary) !important;
+            font-size: 1.8rem;
+        }
+        .navbar-brand img { height: 32px; margin-right: 12px; }
+        .navbar-brand span { vertical-align: middle; }
+        .navbar-nav .nav-link {
+            color: var(--google-text-secondary) !important;
+            font-weight: 500;
+            padding: 0.6rem;
+            margin: 0 0.25rem;
+            border-radius: 50%;
+            transition: background-color 0.2s ease-in-out;
+            line-height: 1;
+            border-bottom: none;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: var(--google-bg) !important;
+            color: var(--google-text-primary) !important;
+        }
+        .navbar-toggler { border: none; }
+        .nav-link .material-symbols-rounded {
+            font-size: 1.5rem;
+            margin-right: 0;
+            vertical-align: middle;
+            font-variation-settings: 'opsz' 24;
+        }
+
+        /* --- CARD --- */
+        .card {
+            border-radius: 16px;
+            border: 1px solid var(--google-outline);
+            box-shadow: none;
+            background-color: var(--google-card-bg);
+            overflow: hidden;
+            position: relative;
+        }
+        .card .card-body { padding: 0; }
+
+        /* --- TABS (ВИРІВНЯНІ ЗЛІВА І РІВНІ) --- */
+        .card-tabs {
+            border-bottom: 1px solid var(--google-outline);
+            padding: 0 1rem 0 1rem;
+        }
+        @media (min-width: 768px) {
+            .card-tabs { padding: 0 1.5rem; }
+        }
+        .card-tabs .nav-link {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+            color: var(--google-text-secondary);
+            /* (КЛЮЧОВЕ ВИПРАВЛЕННЯ) */
+            border: none !important;
+            border-bottom: 3px solid transparent !important; /* ПРОЗОРА СМУЖКА ДЛЯ ВСІХ */
+            background-color: transparent !important;
+            box-shadow: none !important;
+            outline: none !important;
+            padding: 0.75rem 0;
+            margin: 0;
+            margin-right: 1.5rem;
+            border-radius: 0;
+        }
+        .card-tabs .nav-link:hover {
+            color: var(--google-text-primary);
+            border-color: transparent !important;
+        }
+        .card-tabs .nav-link.active {
+            color: var(--google-blue);
+            border-bottom-color: var(--google-blue) !important; /* СИНЯ СМУЖКА ДЛЯ АКТИВНОЇ */
+        }
+        .tab-content { padding: 0; }
+
+        /* --- СВОТЧІ КОЛЬОРІВ --- */
+        .color-swatches { display: flex; gap: 10px; margin-bottom: 1.5rem; }
+        .swatch {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--google-outline);
+            transition: border-color 0.2s ease;
+        }
+        .swatch:hover { border-color: var(--google-text-secondary); }
+        .swatch-check:checked + .swatch {
+            border-color: var(--google-blue);
+        }
+        .swatch-hazel { background-color: #5F605A; }
+        .swatch-obsidian { background-color: #383a3c; }
+        .swatch-porcelain { background-color: #f0ebe5; }
+        .swatch-rose-quartz { background-color: #DBC7C3; }
+        .swatch-check { display: none; } /* Ховаємо радіокнопки */
+
+        /* --- КНОПКИ ПАМ'ЯТІ --- */
+        .btn-storage {
+            border-radius: 8px !important;
+            font-weight: 500;
+        }
+        .storage-selector .btn-storage {
+            background-color: var(--google-card-bg);
+            color: var(--google-text-secondary);
+            border-color: var(--google-outline);
+        }
+        .storage-selector .btn-storage:hover {
+            background-color: var(--google-bg);
+            border-color: var(--google-text-secondary);
+        }
+        #storage-128:checked ~ .product-content .storage-selector [for="storage-128"],
+        #storage-256:checked ~ .product-content .storage-selector [for="storage-256"],
+        #storage-512:checked ~ .product-content .storage-selector [for="storage-512"] {
+            background-color: var(--google-light-blue-bg);
+            color: var(--google-light-blue-text);
+            border-color: var(--google-blue);
+            box-shadow: none;
+        }
+
+        /* --- Логіка ЦІНИ (без JS) --- */
+        .price-container .price { display: none; }
+        #storage-128:checked ~ .product-content .price-container .price-128 { display: block; }
+        #storage-256:checked ~ .product-content .price-container .price-256 { display: block; }
+        #storage-512:checked ~ .product-content .price-container .price-512 { display: block; }
+
+        /* --- (ВИПРАВЛЕНО) Логіка КАРТИНОК (без JS) --- */
+
+        /* 1. Картинки на мобільному (зверху) */
+        .product-image-gallery {
+            position: relative;
+            width: 100%;
+            /* (ВИПРАВЛЕНО) Фон білий, щоб картинки зливалися */
+            background-color: var(--google-card-bg);
+            padding: 1.5rem;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            display: none; /* (ВАЖЛИВО) Ховаємо всі картинки */
+            object-fit: contain; /* <-- (ВИПРАВЛЕНО) Вписує картинку */
+        }
+
+        /* 2. (ВАЖЛИВО) Показуємо *тільки* активну картинку */
+        #color-hazel:checked ~ .product-image-gallery .image-hazel,
+        #color-obsidian:checked ~ .product-image-gallery .image-obsidian,
+        #color-porcelain:checked ~ .product-image-gallery .image-porcelain,
+        #color-rose-quartz:checked ~ .product-image-gallery .image-rose-quartz {
+            display: block;
+        }
+
+        /* 3. Магія для десктопу (переміщуємо картинки направо) */
+        @media (min-width: 768px) {
+            .product-image-gallery {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 50%;
+                height: 100%;
+                /* (ВИПРАВЛЕНО) Прибрали flex, додали padding */
+                padding: 2rem;
+            }
+            .product-image {
+                /* (ВИПРАВЛЕНО) Змушуємо картинку заповнити контейнер по висоті */
+                width: 100%;
+                height: 100%;
+            }
+        }
+        /* --- Кінець виправлень для картинок --- */
+
+
+        /* --- ІНШІ СТИЛІ --- */
+        .btn-primary, .btn-outline-secondary {
+            border-radius: 99px;
+            padding: 0.75rem 1.75rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease;
+        }
+        .btn-primary {
+            background-color: var(--google-blue);
+            border-color: var(--google-blue);
+        }
+        .btn-primary:hover {
+            background-color: var(--google-blue-hover);
+            border-color: var(--google-blue-hover);
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-outline-secondary {
+            color: var(--google-blue);
+            border-color: var(--google-outline);
+            background-color: transparent;
+        }
+        .btn-outline-secondary:hover {
+            background-color: var(--google-light-blue-bg);
+            border-color: var(--google-outline);
+            color: var(--google-light-blue-text);
+        }
+        h1, .h1 { font-weight: 700; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Google Sans', sans-serif; color: var(--google-text-primary); }
+        .card-text { color: var(--google-text-secondary); }
+        .price { color: var(--google-text-primary); }
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: var(--google-text-secondary);
+        }
+        .specs-list li::before {
+            content: "\e876";
+            font-family: 'Material Symbols Rounded';
+            font-weight: normal; font-style: normal; font-size: 1.25rem; line-height: 1;
+            letter-spacing: normal; text-transform: none; display: inline-block;
+            white-space: nowrap; word-wrap: normal; direction: ltr;
+            -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
+            position: absolute; left: 0;
+            color: var(--google-blue);
+        }
+
+        /* (ВИДАЛЕНО) Старий .footer */
+
+        /* --- (НОВЕ) Google Footer --- */
+        .google-footer {
+            background-color: var(--google-card-bg);
+            border-top: 1px solid var(--google-outline);
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+            font-family: 'Roboto', sans-serif; /* Google використовує Roboto для дрібного тексту */
+        }
+
+        .google-footer .footer-heading {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+            color: var(--google-text-primary);
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        .google-footer .footer-link {
+            text-decoration: none;
+            color: var(--google-text-secondary);
+            font-size: 0.9rem;
+            line-height: 2.2; /* Більше "повітря" між посиланнями */
+            transition: color 0.2s ease;
+        }
+
+        .google-footer .footer-link:hover {
+            color: var(--google-text-primary);
+        }
+
+        /* Нижня панель */
+        .footer-bottom {
+            border-top: 1px solid var(--google-outline);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--google-text-secondary);
+        }
+
+        .footer-bottom .footer-link {
+             margin-left: 1.5rem;
+        }
+        /* --- Кінець стилів для футера --- */
+
+        .material-symbols-rounded { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
+        .btn .material-symbols-rounded { margin-right: 8px; vertical-align: bottom; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
+                <span>Pixel Store</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Пошук">
+                            <span class="material-symbols-rounded">search</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Кошик">
+                            <span class="material-symbols-rounded">shopping_bag</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Профіль">
+                            <span class="material-symbols-rounded">account_circle</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+
+        <div class="card">
+            <div class="row g-0">
+
+                <div class="col-md-6 order-2 order-md-1">
+                    <div class="card-body">
+
+                        <ul class="nav nav-tabs card-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Огляд</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs-tab-pane" type="button" role="tab" aria-controls="specs-tab-pane" aria-selected="false">Характеристики</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="box-tab" data-bs-toggle="tab" data-bs-target="#box-tab-pane" type="button" role="tab" aria-controls="box-tab-pane" aria-selected="false">Що в коробці?</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+
+                            <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab">
+
+                                <input type="radio" class="swatch-check" name="color-options" id="color-hazel" autocomplete="off">
+                                <input type="radio" class="swatch-check" name="color-options" id="color-obsidian" autocomplete="off" checked>
+                                <input type="radio" class="swatch-check" name="color-options" id="color-porcelain" autocomplete="off">
+                                <input type="radio" class="swatch-check" name="color-options" id="color-rose-quartz" autocomplete="off">
+
+                                <input type="radio" class="btn-check" name="storage-options" id="storage-128" autocomplete="off" checked>
+                                <input type="radio" class="btn-check" name="storage-options" id="storage-256" autocomplete="off">
+                                <input type="radio" class="btn-check" name="storage-options" id="storage-512" autocomplete="off">
+
+                                <div class="product-image-gallery">
+                                    <img src="assets/Pixel_Hazel.webp"
+                                         class="img-fluid product-image image-hazel" alt="Pixel 9 Pro Hazel">
+
+                                    <img src="assets/Pixel_Obsidian.webp"
+                                         class="img-fluid product-image image-obsidian" alt="Pixel 9 Pro Obsidian">
+
+                                    <img src="assets/Pixel_Porcelain.webp"
+                                         class="img-fluid product-image image-porcelain" alt="Pixel 9 Pro Porcelain">
+
+                                    <img src="assets/Pixel_RoseQuartz.webp"
+                                         class="img-fluid product-image image-rose-quartz" alt="Pixel 9 Pro Rose Quartz">
+                                </div>
+
+
+                                <div class="product-content p-4 p-md-5">
+                                    <h1 class="card-title display-5 fw-bold mb-3">Google Pixel 9 Pro</h1>
+                                    <p class="card-text my-4 lead">
+                                        Зустрічайте новий стандарт Pro. Потужний чіп Tensor G4 та найдосконаліша Pro-камера Pixel.
+                                    </p>
+
+                                    <div class="price-container mb-3">
+                                        <h2 class="fw-normal price display-6 price-128">39 999 ₴</h2>
+                                        <h2 class="fw-normal price display-6 price-256">43 999 ₴</h2>
+                                        <h2 class="fw-normal price display-6 price-512">47 999 ₴</h2>
+                                    </div>
+
+                                    <p class="card-text text-muted mb-2">Колір:</p>
+                                    <div class="color-swatches">
+                                        <label class="swatch swatch-hazel" for="color-hazel" title="Hazel"></label>
+                                        <label class="swatch swatch-obsidian" for="color-obsidian" title="Obsidian"></label>
+                                        <label class="swatch swatch-porcelain" for="color-porcelain" title="Porcelain"></label>
+                                        <label class="swatch swatch-rose-quartz" for="color-rose-quartz" title="Rose Quartz"></label>
+                                    </div>
+
+                                    <p class="card-text text-muted mb-2 mt-4">Пам'ять:</p>
+                                    <div class="d-flex gap-2 storage-selector">
+                                        <label class="btn btn-storage flex-fill" for="storage-128">128 ГБ</label>
+                                        <label class="btn btn-storage flex-fill" for="storage-256">256 ГБ</label>
+                                        <label class="btn btn-storage flex-fill" for="storage-512">512 ГБ</label>
+                                    </div>
+
+                                    <div class="d-flex flex-column flex-md-row my-4">
+                                        <a href="#" class="btn btn-primary btn-lg px-4 me-md-3 mb-3 mb-md-0 d-inline-flex align-items-center justify-content-center">
+                                            <span class="material-symbols-rounded">shopping_bag</span>Купити
+                                        </a>
+                                        <a href="#" class="btn btn-outline-secondary btn-lg px-4 d-inline-flex align-items-center justify-content-center">
+                                            <span class="material-symbols-rounded">add_shopping_cart</span>В кошик
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade p-4 p-md-5" id="specs-tab-pane" role="tabpanel" aria-labelledby="specs-tab" tabindex="0">
+                                <h5 class="fw-bold mb-3 d-flex align-items-center">
+                                    <span class="material-symbols-rounded me-2" style="color: var(--google-blue);">list_alt</span>
+                                    Основні характеристики:
+                                </h5>
+                                <ul class="specs-list">
+                                    <li>Дисплей: 6.7" Super Actua LTPO OLED</li>
+                                    <li>Процесор: Google Tensor G4</li>
+                                    <li>Камера: Pro-система 50 Мп + 48 Мп + 48 Мп</li>
+                                    <li>Пам'ять: 12 ГБ RAM, 256 ГБ сховище</li>
+                                    <li>Акумулятор: 5,100 мАг з швидкою зарядкою</li>
+                                    <li>ОС: Android 15 з 7 роками оновлень</li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-pane fade p-4 p-md-5" id="box-tab-pane" role="tabpanel" aria-labelledby="box-tab" tabindex="0">
+                                <h5 class="fw-bold mb-3 d-flex align-items-center">
+                                    <span class="material-symbols-rounded me-2" style="color: var(--google-blue);">inventory_2</span>
+                                    Комплектація:
+                                </h5>
+                                <ul class="specs-list">
+                                    <li>Смартфон Google Pixel 9 Pro</li>
+                                    <li>Кабель USB-C® (1 м)</li>
+                                    <li>Адаптер Quick Switch</li>
+                                    <li>Інструмент для SIM-карти</li>
+                                    <li>Документація</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 order-1 order-md-2 d-none d-md-block">
+                    </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="google-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h5 class="footer-heading">Про Pixel Store</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Про Google Store</a></li>
+                        <li><a href="#" class="footer-link">Pixel для бізнесу</a></li>
+                        <li><a href="#" class="footer-link">Ідеї та інформація</a></li>
+                        <li><a href="#" class="footer-link">Студентські знижки</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h5 class="footer-heading">Замовлення</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Керування замовленням</a></li>
+                        <li><a href="#" class="footer-link">Доступність і доставка</a></li>
+                        <li><a href="#" class="footer-link">Фінансування</a></li>
+                        <li><a href="#" class="footer-link">Безкоштовна доставка</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h5 class="footer-heading">Підтримка</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Довідковий центр</a></li>
+                        <li><a href="#" class="footer-link">Ремонт</a></li>
+                        <li><a href="#" class="footer-link">Допомога (інвалідність)</a></li>
+                        <li><a href="#" class="footer-link">Зв'язатися з нами</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h5 class="footer-heading">Екологія</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Наші зобов'язання</a></li>
+                        <li><a href="#" class="footer-link">Утилізація пристроїв</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <span class="footer-copyright order-2 order-md-1 mt-3 mt-md-0">© 2025 Pixel Store. Всі права захищено.</span>
+                <nav class="footer-legal-links order-1 order-md-2">
+                    <a href="#" class="footer-link">Україна (UAH)</a>
+                    <a href="#" class="footer-link">Конфіденційність</a>
+                    <a href="#" class="footer-link">Умови</a>
+                </nav>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdKmalKFfpgHi0" crossorigin="anonymous"></script>
+
+</body>
+</html>
